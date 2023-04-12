@@ -1,14 +1,16 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
+import Input from "@src/components/FormControlled"
 import { useFieldArray, useForm } from "react-hook-form"
 import { z } from "zod"
 
 const schema = z.object({
-    examples: z.array(z.object({ item: z.string().nonempty()}))
+    examples: z.array(z.object({ item: z.string().nonempty()})).nonempty(),
+    controlled: z.string().nonempty().default("")
 })
 
-type Schema = z.infer<typeof schema>
+export type Schema = z.infer<typeof schema>
 
 const Form = () => {
     const { register, handleSubmit, formState: { errors }, control } = useForm<Schema>({
@@ -37,6 +39,7 @@ const Form = () => {
                     </div>
                 )})
             }
+            <Input control={control} name="controlled" />
             <button onClick={() => append({ item: ""})}>Add</button>
             <input type="submit" />
         </form>
