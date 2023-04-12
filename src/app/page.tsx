@@ -6,16 +6,6 @@ import RenderForms, { Form, FormEnum, formsSchema } from '@src/components/Render
 import { FormProvider, SubmitHandler, useFieldArray, useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod";
 
-const inter = Inter({ subsets: ['latin'] })
-
-const forms: FormEnum[] = [
-  "FormAnimal",
-  'FormCarro',
-  'FormAnimal',
-  'FormAnimal',
-  'FormCarro'
-]
-
 export default function Home() {
 
   const methods = useForm<Form>({

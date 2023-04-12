@@ -29,7 +29,7 @@ type FormAnimalProps = {
 const FormAnimal = ({ index }: FormAnimalProps) => {
     const { register, formState: { errors } } = useFormContext()
 
-    const formErrors: FieldErrors<{forms: Animal[]}> = errors
+    const formErrors: FieldErrors<{ forms: Animal[] }> = errors
 
     return (
         <>
